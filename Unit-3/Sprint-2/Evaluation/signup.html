@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Signup</title>
+    <style>
+      #main {
+        height: 80px;
+      }
+      #main div {
+        height: 25px;
+        width: 100px;
+        float: right;
+        margin: 10px;
+        font-size: 20px;
+        font-weight: bold;
+        text-align: center;
+        border-radius: 5px;
+        padding: 5px;
+        align-items: center;
+        justify-content: center;
+      }
+      form {
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="main">
+      <div onclick="nav('signup.html')">Signup</div>
+      <div onclick="nav('login.html')">Login</div>
+      <div onclick="nav('index.html')">Menu</div>
+    </div>
+    <h1>SignUp</h1>
+    <form action="login.html" onsubmit=" return form_details()">
+      <label for="name">Name</label>
+      <br />
+      <input type="text" id="name" placeholder="Enter Name" />
+      <br /><br />
+      <label for="mobile">Mobile Number</label>
+      <br />
+      <input type="mobile" id="mobile" placeholder="Enter Mobile Number" />
+      <br /><br />
+      <label for="email">Email</label>
+      <br />
+      <input type="text" id="email" placeholder="Enter Email" />
+      <br /><br />
+      <label for="password">Password</label>
+      <br />
+      <input type="password" id="password" placeholder="Enter Password" />
+      <br /><br />
+      <input type="submit" id="submit" />
+    </form>
+  </body>
+</html>
+
+<script>
+  function form_details() {
+    const details = {
+      email: document.getElementById("email").value,
+      password: document.getElementById("password").value,
+      name: document.getElementById("name").value,
+      mobile: document.getElementById("mobile").value,
+    };
+    if (
+      details.email.trim() == "" ||
+      details.password.trim() == "" ||
+      details.mobile.trim() == "" ||
+      details.name.trim() == ""
+    ) {
+      alert("Blank Values Are Now Allowed");
+      return false;
+    } else {
+      true;
+    }
+    const details_json = JSON.stringify(details);
+    localStorage.setItem("details", details_json);
+  }
+  function nav(page) {
+    window.location.href = page;
+  }
+  function nav1(page) {
+    window.location.href = page;
+  }
+  function nav2(page) {
+    window.location.href = page;
+  }
+</script>
